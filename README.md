@@ -95,7 +95,7 @@ Reboot after installation to apply changes.
 
 Comparing GNOME and XFCE
 
-GNOME
+**GNOME**
 
 Interface: Modern and polished.
 
@@ -103,7 +103,7 @@ Customization: Supports extensions but requires more setup.
 
 Performance: Higher resource usage.
 
-XFCE
+**XFCE**
 
 Interface: Lightweight and traditional.
 
@@ -111,15 +111,12 @@ Customization: Easily customizable with themes and plugins.
 
 Performance: Lower resource consumption, ideal for older systems.
 
-Conclusion
-
-GNOME provides a sleek, modern experience but requires more system resources. XFCE, on the other hand, is lightweight and customizable, making it an excellent choice for performance-focused users.
 
 ![1](https://github.com/user-attachments/assets/35b231dc-cfad-4dfe-9ada-05105d6e0b41)
 ![3](https://github.com/user-attachments/assets/a9873760-18e8-48da-a23a-26d5954ecd3f)
 ![2](https://github.com/user-attachments/assets/5e897d17-2cba-414b-b9ba-daf1a0281b65)
 
-Conclusion
+**Conclusion**
 
 GNOME provides a sleek, modern experience but requires more system resources. XFCE, on the other hand, is lightweight and customizable, making it an excellent choice for performance-focused users.
 
