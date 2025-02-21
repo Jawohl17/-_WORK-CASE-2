@@ -61,3 +61,10 @@ XFCE:
 Lightweight and fast, suitable for older hardware.
 Customizable and efficient, using fewer resources.
 Provides a more traditional desktop experience.
+
+screenshots of works:
+
+![1](https://github.com/user-attachments/assets/35b231dc-cfad-4dfe-9ada-05105d6e0b41)
+![3](https://github.com/user-attachments/assets/a9873760-18e8-48da-a23a-26d5954ecd3f)
+![2](https://github.com/user-attachments/assets/5e897d17-2cba-414b-b9ba-daf1a0281b65)
+
