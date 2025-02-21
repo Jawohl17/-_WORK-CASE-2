@@ -1,71 +1,127 @@
-Install QEMU:
-On Ubuntu or Debian:
+Work-case 2
+
+Installation of Hypervisor
+
+Choosing a Hypervisor
+
+I opted for QEMU due to its flexibility and support for various architectures. It was aimed at updating "VirtualBox" drivers.
+
+Basic Actions in QEMU
+
+1. Creating a New Virtual Machine
+
+Installing QEMU
+
+If QEMU is not installed, use the following command based on your distribution:
 
 sudo apt update
 sudo apt install qemu qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils
-On Fedora:
 
-sudo dnf install qemu-kvm libvirt virt-install
-Basic Operations in QEMU
-1. Creating a New Virtual Machine
-To create a new virtual machine, you can use the qemu-system-x86_64 command (for 64-bit systems). For example:
+Creating a Disk Image
 
-qemu-system-x86_64 -m 2048 -hda /path/to/your/disk.img -cdrom /path/to/your/iso -boot d
--m 2048 - allocates 2048 MB of RAM.
--hda - specifies the hard disk (create it in advance using qemu-img).
--cdrom - specifies the ISO image of the operating system.
--boot d - boots from the CD-ROM.
-2. Selecting/Adding Available Hardware for the Virtual Machine
-To add additional devices, such as network adapters, you can use command-line options:
+qemu-img create -f qcow2 my_vm_image.qcow2 20G
 
--net nic -net user
-This will create a virtual network adapter.
-3. Configuring Network and Connecting to Wi-Fi Points
-To connect to Wi-Fi, you need to set up a network bridge on your host system. This can be done using brctl or nmcli (NetworkManager).
-After setting up the bridge, you can connect the virtual machine to it:
+Launching the Virtual Machine
 
--netdev bridge,id=net0,br=br0 -device virtio-net-pci,netdev=net0
-4. Working with External Storage Devices (USB Flash Drives)
-To connect a USB device to the virtual machine, use the -usb and -device usb-host options:
+qemu-system-x86_64 -hda my_vm_image.qcow2 -boot d -cdrom path_to_your_iso.iso -m 2048
+
+Replace path_to_your_iso.iso with the actual path to your ISO image.
+
+2. Selecting/Adding Available Hardware
+
+Configure CPU and RAM
+
+qemu-system-x86_64 -hda my_vm_image.qcow2 -m 2048 -smp 2
+
+Add Network Interface
+
+-netdev user,id=mynet0 -device e1000,netdev=mynet0
+
+3. Configuring Network and Connecting to Wi-Fi
+
+Bridged Networking
+
+To connect to a Wi-Fi network, you can configure a bridged network:
+
+-netdev tap,ifname=tap0,script=no,downscript=no,id=mynet0 -device e1000,netdev=mynet0
+
+Ensure the tap interface is created and configured properly.
+
+4. Working with External Storage Devices
+
+Access USB Devices
 
 -usb -device usb-host,hostbus=1,hostaddr=2
-Replace hostbus and hostaddr with the appropriate values for your USB device, which can be found using the lsusb command.
+
+Find hostbus and hostaddr values using:
+
+lsusb
+
 Installing a GNU/Linux Operating System
-Installing a GNU/Linux Distro:
-Start the virtual machine with the ISO image as mentioned above and follow the installer instructions.
+
+1. Installing a GNU/Linux Distribution
+
+Start the VM using the above commands with an ISO image.
+
+Follow the installation steps to complete the process.
+
 Creating a Second Virtual Machine
-Creating the Second Virtual Machine:
 
-Use a similar command to create a new virtual machine, but without a graphical interface:
+1. Installing a Minimal Configuration
 
-qemu-system-x86_64 -m 1024 -hda /path/to/your/minimal_disk.img -cdrom /path/to/minimal_iso -boot d
-Installing the GNOME Desktop Environment:
+Creating a New Disk Image
 
-After installing the base system, you can install GNOME:
+qemu-img create -f qcow2 my_vm_image_minimal.qcow2 20G
+
+Launching Minimal VM
+
+qemu-system-x86_64 -hda my_vm_image_minimal.qcow2 -boot d -cdrom path_to_minimal_iso.iso -m 2048
+
+Installing the Base System (Without GUI)
+
+Follow the minimal installation steps and complete the setup.
+
+2. Installing the GNOME Desktop Environment
 
 sudo apt update
 sudo apt install ubuntu-desktop
-Installing a Second Desktop Environment:
 
-For example, to install XFCE:
+Reboot the system after installation.
+
+3. Installing a Second Desktop Environment (XFCE)
 
 sudo apt install xubuntu-desktop
-Comparing the Features of GNOME and XFCE
-GNOME:
 
-Modern, aesthetically pleasing interface.
-Many built-in features, but can be resource-heavy.
-More resource-intensive, which may not be suitable for older systems.
-XFCE:
+Reboot after installation to apply changes.
 
-Lightweight and fast, suitable for older hardware.
-Customizable and efficient, using fewer resources.
-Provides a more traditional desktop experience.
+Comparing GNOME and XFCE
 
-screenshots of works:
+GNOME
+
+Interface: Modern and polished.
+
+Customization: Supports extensions but requires more setup.
+
+Performance: Higher resource usage.
+
+XFCE
+
+Interface: Lightweight and traditional.
+
+Customization: Easily customizable with themes and plugins.
+
+Performance: Lower resource consumption, ideal for older systems.
+
+Conclusion
+
+GNOME provides a sleek, modern experience but requires more system resources. XFCE, on the other hand, is lightweight and customizable, making it an excellent choice for performance-focused users.
 
 ![1](https://github.com/user-attachments/assets/35b231dc-cfad-4dfe-9ada-05105d6e0b41)
 ![3](https://github.com/user-attachments/assets/a9873760-18e8-48da-a23a-26d5954ecd3f)
 ![2](https://github.com/user-attachments/assets/5e897d17-2cba-414b-b9ba-daf1a0281b65)
+
+Conclusion
+
+GNOME provides a sleek, modern experience but requires more system resources. XFCE, on the other hand, is lightweight and customizable, making it an excellent choice for performance-focused users.
 
 
