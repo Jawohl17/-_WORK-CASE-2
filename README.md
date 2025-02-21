@@ -1,4 +1,4 @@
-Work-case 2
+###Work-case 2###
 
 Installation of Hypervisor
 
@@ -8,7 +8,7 @@ I opted for QEMU due to its flexibility and support for various architectures. I
 
 Basic Actions in QEMU
 
-1. Creating a New Virtual Machine
+###1. Creating a New Virtual Machine###
 
 Installing QEMU
 
@@ -27,7 +27,7 @@ qemu-system-x86_64 -hda my_vm_image.qcow2 -boot d -cdrom path_to_your_iso.iso -m
 
 Replace path_to_your_iso.iso with the actual path to your ISO image.
 
-2. Selecting/Adding Available Hardware
+###2. Selecting/Adding Available Hardware###
 
 Configure CPU and RAM
 
@@ -37,7 +37,7 @@ Add Network Interface
 
 -netdev user,id=mynet0 -device e1000,netdev=mynet0
 
-3. Configuring Network and Connecting to Wi-Fi
+###3. Configuring Network and Connecting to Wi-Fi###
 
 Bridged Networking
 
@@ -47,7 +47,7 @@ To connect to a Wi-Fi network, you can configure a bridged network:
 
 Ensure the tap interface is created and configured properly.
 
-4. Working with External Storage Devices
+###4. Working with External Storage Devices###
 
 Access USB Devices
 
@@ -59,7 +59,7 @@ lsusb
 
 Installing a GNU/Linux Operating System
 
-1. Installing a GNU/Linux Distribution
+###1. Installing a GNU/Linux Distribution###
 
 Start the VM using the above commands with an ISO image.
 
@@ -67,7 +67,7 @@ Follow the installation steps to complete the process.
 
 Creating a Second Virtual Machine
 
-1. Installing a Minimal Configuration
+###1. Installing a Minimal Configuration###
 
 Creating a New Disk Image
 
@@ -81,14 +81,14 @@ Installing the Base System (Without GUI)
 
 Follow the minimal installation steps and complete the setup.
 
-2. Installing the GNOME Desktop Environment
+###2. Installing the GNOME Desktop Environment###
 
 sudo apt update
 sudo apt install ubuntu-desktop
 
 Reboot the system after installation.
 
-3. Installing a Second Desktop Environment (XFCE)
+###3. Installing a Second Desktop Environment (XFCE)###
 
 sudo apt install xubuntu-desktop
 
